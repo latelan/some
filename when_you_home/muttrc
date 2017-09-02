@@ -1,0 +1,7 @@
+set folder=/root/Mail
+set record=+sent
+set charset="utf-8"
+set realname="sender"
+set from="amdin@163.com"
+set use_from=yes
+set sendmail="/usr/sbin/ssmtp"

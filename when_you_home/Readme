@@ -1,0 +1,34 @@
+# when_you_home
+
+一个探测手机是否连接wifi的利器, 检测到手机上下线后发送邮件到指定邮箱
+
+## 硬件 
+* 一个能ssh的路由器
+
+## 软件
+* mutt
+* ssmtp
+
+## 安装
+1.安装邮件发送工具，将bin目录下文件拷贝到相应配置，为库文件做软链
+
+```
+/usr/bin/mutt
+/usr/sbin/ssmtp
+/usr/lib/libncursesw.so.5 --> /usr/lib/libncursesw.so.5.9
+```
+
+2.安装配置文件，将当前目录下配置文件拷贝到相应配置。
+
+```
+/etc/ssmtp/ssmtp.conf
+/root/.muttrc
+```
+
+3. 添加corn任务
+
+```
+* * * * * /bin/sh /root/when_you_home/checker-master.sh >> /root/when_you_home/checker.log 2>&1
+```
+
+4. 安装完成
